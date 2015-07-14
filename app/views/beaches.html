@@ -1,0 +1,10 @@
+<h3>{{ appSettings.title}} </h3>
+<select ng-model="beaches">
+  <option
+  ng-repeat="beach in beaches"
+  title="{{beach.name}}">
+  </option>
+</select>
+
+
+<footer>Version: {{ beachesCtrl.appSettings.version }}</footer>
