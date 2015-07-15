@@ -1,10 +1,23 @@
 <h3>{{ appSettings.title}} </h3>
-<select ng-model="beaches">
-  <option
-  ng-repeat="beach in beaches"
-  title="{{beach.name}}">
-  </option>
+<select ng-model="beachesCtrl.selectedBeach" ng-options="beach.name for beach in beachesCtrl.beaches">
 </select>
+<!-- <h1>{{beachesCtrl.selectedBeach.name}}</h1>
+<h2>{{beachesCtrl.selectedBeach.comments}}</h2> -->
+<h2>Comments on parking</h2>
+<li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'parking'}: true">{{comment.body}}</li>
+<h2>Comments on restaurants</h2>
+<li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'restaurants'}: true">{{comment.body}}</li>
+<h2>Comments on activities</h2>
+<li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'activities'}: true">{{comment.body}}</li>
 
 
-<footer>Version: {{ beachesCtrl.appSettings.version }}</footer>
+<form novalidate name='form' class="css-form">
+  <input type="text" name="body" ng-model="beachesCtrl.newComment"/>
+  <input type="radio" ng-model="beachesCtrl.catagory"value="parking" />parking
+  <input type="radio" ng-model="beachesCtrl.catagory" value="restaurants" />restaurants<br />
+  <input type="radio" ng-model="beachesCtrl.catagory" value="activities" />activites
+<button ng-click="beachesCtrl.update()">Save</button>
+</form>
+
+
+

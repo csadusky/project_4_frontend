@@ -7,7 +7,16 @@
     var factory = {};
     factory.beaches = [];
     factory.beach = {};
+    factory.update = function(newComment, catagory, name){
+      var url = 'http://localhost:3000/beaches/' + name;
+      var data = {comment_body: newComment, comment_commentType: catagory};
+      console.log(data);
+      return $http.post(url, data).success(function(response){
+        factory.getBeaches();
+      });
 
+
+    };
     factory.getBeaches = function(){
       return $http.get('http://localhost:3000/beaches').success(function(response){
         angular.copy(response, factory.beaches);

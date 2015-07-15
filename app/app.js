@@ -3,7 +3,7 @@
 
   app.config(function($routeProvider){
     $routeProvider
-      .when('/beaches/:name',
+      .when('/',
             {
               controller: 'beachesController',
               controllerAs: 'beachesCtrl',
@@ -11,7 +11,24 @@
 
             }
            )
-      .otherwise({redirectTo: '/'});
+
+      .when('/beaches',
+            {
+              controller: 'beachesController',
+              controllerAs: 'beachesCtrl',
+              templateUrl: 'app/views/beaches.html',
+
+            }
+           )
+      .when('/beaches/name',
+            {
+              controller: 'beachesController',
+              controllerAs: 'beachesCtrl',
+              templateUrl: 'app/views/beaches.html',
+
+            }
+           )
+      .otherwise({redirectTo: '/beaches'});
   });
 
 })();
