@@ -7,9 +7,10 @@
     var factory = {};
     factory.beaches = [];
     factory.beach = {};
-    factory.update = function(newComment, catagory, name){
+
+    factory.update = function(newComment, category, name){
       var url = 'http://localhost:3000/beaches/' + name;
-      var data = {comment_body: newComment, comment_commentType: catagory};
+      var data = {comment_body: newComment, comment_commentType: category};
       console.log(data);
       return $http.post(url, data).success(function(response){
         factory.getBeaches();

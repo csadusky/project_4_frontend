@@ -1,23 +1,35 @@
-<h3>{{ appSettings.title}} </h3>
-<select ng-model="beachesCtrl.selectedBeach" ng-options="beach.name for beach in beachesCtrl.beaches">
-</select>
-<!-- <h1>{{beachesCtrl.selectedBeach.name}}</h1>
-<h2>{{beachesCtrl.selectedBeach.comments}}</h2> -->
-<h2>Comments on parking</h2>
-<li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'parking'}: true">{{comment.body}}</li>
-<h2>Comments on restaurants</h2>
-<li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'restaurants'}: true">{{comment.body}}</li>
-<h2>Comments on activities</h2>
-<li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'activities'}: true">{{comment.body}}</li>
+   <!-- HERO -->
+  <div class="hero-unit">
+    <h1>Beaches and Stuff</h1>
+    <p>Tagline</p>
+    <p>
+      <a class="btn btn-primary btn-large">
+        Learn more
+      </a>
+    </p>
+  </div>
 
 
-<form novalidate name='form' class="css-form">
-  <input type="text" name="body" ng-model="beachesCtrl.newComment"/>
-  <input type="radio" ng-model="beachesCtrl.catagory"value="parking" />parking
-  <input type="radio" ng-model="beachesCtrl.catagory" value="restaurants" />restaurants<br />
-  <input type="radio" ng-model="beachesCtrl.catagory" value="activities" />activites
-<button ng-click="beachesCtrl.update()">Save</button>
-</form>
+  <h3>{{ appSettings.title}} </h3>
+  <select name="selectedBeach" ng-model="beachesCtrl.selectedBeach" ng-options="beach.name for beach in beachesCtrl.beaches">
+  </select>
+  <!-- <h1>{{beachesCtrl.selectedBeach.name}}</h1>
+  <h2>{{beachesCtrl.selectedBeach.comments}}</h2> -->
+  <h2>Parking</h2>
+  <li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'parking'}: true">{{comment.body}}</li>
+  <h2>Restaurants</h2>
+  <li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'restaurants'}: true">{{comment.body}}</li>
+  <h2>Activities</h2>
+  <li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'activities'}: true">{{comment.body}}</li>
+  <img ng-src = "beachesCtrl.selectedBeach.image" />
+  <form novalidate name='form' class="css-form">
+    <input type="text" name="body" ng-model="beachesCtrl.newComment"/>
+    <input type="radio" ng-model="beachesCtrl.category"value="parking" />parking
+    <input type="radio" ng-model="beachesCtrl.category" value="restaurants" />restaurants<br />
+    <input type="radio" ng-model="beachesCtrl.category" value="activities" />activites
+  <button ng-click="beachesCtrl.update()">Save</button>
+  </form>
+
 
 
 

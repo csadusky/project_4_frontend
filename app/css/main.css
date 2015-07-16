@@ -1,4 +1,4 @@
-#hero-unit {
+.hero-unit {
  padding: 60px;
  margin-bottom: 30px;
  font-size: 18px;
@@ -9,4 +9,9 @@
  -webkit-border-radius: 6px;
  -moz-border-radius: 6px;
  border-radius: 6px;
+}
+
+
+body{
+  background-color:#ADEAE6;
 }

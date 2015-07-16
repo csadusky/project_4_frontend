@@ -9,8 +9,9 @@
     this.appSettings = appSettings;
     this.selectedBeach = this.beaches[0];
     this.newComment = "";
+
     this.update = function(){
-      beachesFactory.update(this.newComment, this.catagory, this.selectedBeach.name);
+      beachesFactory.update(self.newComment, self.category, self.selectedBeach.name);
     }
     function init(){
       // Init the beaches from the factory
@@ -23,6 +24,10 @@
     this.doSort = function(name){
       self.sortBy = name;
       self.reverse = !self.reverse;
+    };
+
+    this.getBeachImage = function() {
+
     };
 
   };
