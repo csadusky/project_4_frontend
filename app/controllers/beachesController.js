@@ -21,13 +21,13 @@
     //this is populating beaches array
     init();
 
+    this.getBeach = function(name){
+      beachesFactory.getBeach(name);
+    };
+
     this.doSort = function(name){
       self.sortBy = name;
       self.reverse = !self.reverse;
-    };
-
-    this.getBeachImage = function() {
-
     };
 
   };

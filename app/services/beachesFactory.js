@@ -1,7 +1,7 @@
 (function beachesFactoryIIFE(){
 
   // Create a beaches factory
-  var beachesFactory = function($http){
+  var beachesFactory = function($http, appSettings){
     // beaches is private, only available in this scope
 
     var factory = {};
@@ -9,23 +9,22 @@
     factory.beach = {};
 
     factory.update = function(newComment, category, name){
-      var url = 'http://localhost:3000/beaches/' + name;
+      var url = appSettings.backendURL + '/beaches/' + name;
       var data = {comment_body: newComment, comment_commentType: category};
       console.log(data);
       return $http.post(url, data).success(function(response){
         factory.getBeaches();
       });
 
-
     };
     factory.getBeaches = function(){
-      return $http.get('http://localhost:3000/beaches').success(function(response){
+      return $http.get(appSettings.backendURL + '/beaches').success(function(response){
         angular.copy(response, factory.beaches);
       });
     };
 
     factory.getBeach = function(name){
-      return  $http.get('http://localhost:3000/beaches/' + name).success(function(response){
+      return  $http.get(appSettings.backendURL + '/beaches/' + name).success(function(response){
         angular.copy(response, factory.beach);
       });
     };
@@ -33,7 +32,7 @@
     return factory;
   };
 
-  beachesFactory.$inject = ['$http'];
+  beachesFactory.$inject = ['$http', 'appSettings'];
 
   angular.module('beachesApp').factory('beachesFactory', beachesFactory);
 })();

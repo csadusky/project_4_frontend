@@ -1,7 +1,8 @@
 // Create applicaton wide settings
 angular.module("beachesApp").value('appSettings', {
   title: "Beaches Application",
-  version: "1.0"
+  version: "1.0",
+  backendURL: "https://fast-brook-4146.herokuapp.com"
 });
 
 /*
