@@ -1,36 +1,47 @@
    <!-- HERO -->
   <div class="hero-unit">
-    <h1>Beaches and Stuff</h1>
-    <p>Tagline</p>
+    <h1>Find Your Beach </h1>
+    <p>Explore the beaches of New England</p>
   </div>
 
+  <div id="introDiv" ng-hide="beachesCtrl.selectedBeach.name">
+  Ever go to a beach and you weren't sure where the best parking was, or which restaurant to go to for lunch? Or maybe you wanted to know about what activities to do in the area.  This is an app where you can share and get advice before you head to the beach.
+  <br>
+  Select from drop-down below and Find Your Beach!
+  </div>
 
   <h3>{{ appSettings.title}} </h3>
   <select ng-change="beachesCtrl.getBeach(beachesCtrl.selectedBeach.name)" name="selectedBeach" ng-model="beachesCtrl.selectedBeach" ng-options="beach.name for beach in beachesCtrl.beaches">
   </select>
-  <!-- <h1>{{beachesCtrl.selectedBeach.name}}</h1>
-  <h2>{{beachesCtrl.selectedBeach.comments}}</h2> -->
-  <ul class= "beachComments">
-    <h2>Parking</h2>
-    <li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'parking'}: true">{{comment.body}}</li>
-    <h2>Restaurants</h2>
-    <li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'restaurants'}: true">{{comment.body}}</li>
-    <h2>Activities</h2>
-    <li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'activities'}: true">{{comment.body}}</li>
-  </ul>
-  <ul class="beachPictures">
-    <li ng-repeat= "thumbnail in beachesCtrl.selectedBeach.thumbnail">
-    <img src="#" ng-src="{{thumbnail}}" />
-    </li>
-  </ul>
-  <form novalidate name='form' class="css-form">
 
+  <div class="beachPictures" ng-show="beachesCtrl.selectedBeach.name">
+    <h3> <i class="fa fa-map-marker fa-4x"></i> Geotag your photo on Instagram and share your experience at {{beachesCtrl.selectedBeach.name}}</h3>
+    <div ng-repeat= "thumbnail in beachesCtrl.selectedBeach.thumbnail">
+    <img src="#" ng-src="{{thumbnail}}" />
+    </div>
+  </div>
+
+  <form novalidate name='form' class="commentForm" ng-show="beachesCtrl.selectedBeach.name">
+  <h4>Tell us what to do at {{beachesCtrl.selectedBeach.name}}</h4>
     <input type="radio" ng-model="beachesCtrl.category"value="parking" />parking<br/>
     <input type="radio" ng-model="beachesCtrl.category" value="restaurants" />restaurants<br />
     <input type="radio" ng-model="beachesCtrl.category" value="activities" />activites<br>
     <input type="text" name="body" ng-model="beachesCtrl.newComment"/>
-  <button ng-click="beachesCtrl.update()">Save</button>
+    <a class ="clear" ng-click="beachesCtrl.newComment = '' ">
+      <button ng-click="beachesCtrl.update()">Save</button>
+    </a>
   </form>
+
+  <ul class= "beachComments" ng-show="beachesCtrl.selectedBeach.name">
+    <h2>Parking</h2>
+      <li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'parking'}: true">{{comment.body}}</li>
+    <h2>Restaurants</h2>
+      <li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'restaurants'}: true">{{comment.body}}</li>
+    <h2>Activities</h2>
+      <li ng-repeat= "comment in beachesCtrl.selectedBeach.comments | filter:{commentType:'activities'}: true">{{comment.body}}</li>
+  </ul>
+
+
 
 
 

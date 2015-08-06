@@ -1,17 +1,77 @@
 .hero-unit {
- padding: 60px;
+ padding: 55px;
  margin-bottom: 30px;
- font-size: 18px;
+ font-size: 20px;
  font-weight: 200;
  line-height: 30px;
  color: inherit;
- background-color: #eeeeee ;
+ background: url(http://download-wallpapers.net/wallpapers/beach-wallpapers-wallpaper-beach-image-rocks-images-wallpaper-40869.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
  -webkit-border-radius: 6px;
  -moz-border-radius: 6px;
  border-radius: 6px;
 }
 
+#introDiv{
+  margin-left:120px;
+  margin-right:120px;
+  font-style: italic;
+  font-size: 15px;
+
+
+}
 
 body{
   background-color:#ADEAE6;
+}
+
+img{
+  float:left;
+  margin: 5px;
+  border:3px solid black;
+  border-radius: 5px;
+}
+
+.beachPictures{
+  float:right;
+  width:500px;
+  margin-right: 100px;
+}
+
+li{
+  list-style: none;
+  border:1px solid grey;
+  border-radius: 5px;
+  margin:1px;
+  background-color: white;
+  opacity:0.5;
+}
+
+.beachComments{
+  width:400px;
+  margin-left: 80px
+}
+
+form{
+  margin-left: 120px
+}
+
+button{
+  border-radius:5px;
+  background-color: white;
+  opacity:0.5;
+}
+
+input{
+  border-radius:5px;
+  background-color: white;
+  opacity:0.5;
+}
+
+select{
+  background-color: #E8CCE0;
+  color:grey;
+  border-radius: 5px;
+  margin-left: 120px;
 }
